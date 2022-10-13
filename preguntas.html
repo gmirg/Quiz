@@ -7,12 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="script.js"></script>
 </head>
 
 <body id="preguntas">
     <!-- Aqui ponemos las preguntas estilo quien quiere ser millonario  -->
     <section class="tarjeta">
-    <div id="pregunta"></div>
+    <div id="pregunta">
+        <h1>Pregunta</h1>
+    </div>
     <div id="respuestas-container">
         <div id="respuesta1" class="caja"></div>
         <div id="respuesta2" class="caja"></div>
@@ -20,6 +23,12 @@
         <div id="respuesta4" class="caja"></div>
     </div>
     </section>
+    <section class="barra-progreso">
+        <div id="progreso">
+            <div id="barra"></div>
+          </div>
+    </section>
+    <button onclick="moverBarra()"></button>
 </body>
 
 </html>

@@ -16,9 +16,25 @@ body#preguntas {
     padding: 0 1%
 }
 
+#pregunta h1 {
+    text-align: center;
+}
+
 #pregunta {
     width: 100%;
-    height: 50vh;
+    height: 40vh;
+}
+
+#progreso {
+    width: 100%;
+    background-color: transparent;
+    margin-top: 25px;
+}
+
+#barra {
+    width: 0%;
+    height: 30px;
+    background-color: rgb(204, 255, 0);
 }
 
 .caja {
@@ -37,13 +53,16 @@ body#preguntas {
 .tarjeta {
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.9);
-    height: 80vh;
-    width: 90%;
     box-shadow: 5px 0px 17px -2px rgba(0, 0, 0, 0.36);
     -webkit-box-shadow: 5px 0px 17px -2px rgba(0, 0, 0, 0.36);
     -moz-box-shadow: 5px 0px 17px -2px rgba(0, 0, 0, 0.36);
+    height: 75vh;
+    width: 90%;
 }
-
+.barra-progreso {
+    height: 20vh;       
+    width: 90%;
+}
 body#preguntas {
     background-image: url("https://images6.alphacoders.com/860/860645.png");
     background-size: cover;
