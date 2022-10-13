@@ -1,0 +1,103 @@
+body#preguntas {
+    background-image: url("https://images6.alphacoders.com/860/860645.png");
+    background-size: cover;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#respuestas-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 100px 100px;
+    gap: 50px;
+    padding: 0 1%
+}
+
+#pregunta {
+    width: 100%;
+    height: 50vh;
+}
+
+.caja {
+    border: 1px solid black;
+    -webkit-border-radius: 5px;
+    -webkit-border-top-left-radius: 100px;
+    -webkit-border-bottom-right-radius: 100px;
+    -moz-border-radius: 5px;
+    -moz-border-radius-topleft: 100px;
+    -moz-border-radius-bottomright: 100px;
+    border-radius: 5px;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+.tarjeta {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    height: 80vh;
+    width: 90%;
+    box-shadow: 5px 0px 17px -2px rgba(0, 0, 0, 0.36);
+    -webkit-box-shadow: 5px 0px 17px -2px rgba(0, 0, 0, 0.36);
+    -moz-box-shadow: 5px 0px 17px -2px rgba(0, 0, 0, 0.36);
+}
+
+body#preguntas {
+    background-image: url("https://images6.alphacoders.com/860/860645.png");
+    background-size: cover;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+#resultado {
+    font-size: 8vw;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#iconofriki {
+    padding-left: 30px;
+}
+
+.cabecera {
+    display: flex;
+    height: 20vw;
+}
+
+
+p#friki {
+    padding-left: 30px;
+    align-self: center;
+    font-size: 2.4vw;
+    display: block;
+    font-family: monospace;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 54ch;
+    animation: typing 2s steps(34), blink .5s infinite step-end alternate;
+    overflow: hidden;
+}
+
+@keyFrames typing {
+    from {
+        width: 0
+    }
+}
+
+@keyFrames blink {
+    50% {
+        border-color: transparent
+    }
+}
+
+#puntuacion {
+    display: flex;
+    justify-content: center;
+}
