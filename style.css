@@ -1,5 +1,5 @@
 body#preguntas {
-    background-image: url("https://images6.alphacoders.com/860/860645.png");
+    background-image: url("https://cdn.fansshare.com/photo/animewallpaper/terrific-video-game-character-wallpaper-anime-collage-wallpaper-free-freak-list-news-network-yaoi-here-games-movies-season-animecrazy-anime-characters-wallpaper-2028410025.jpg");
     background-size: cover;
     padding: 0 50px;
     display: flex;
@@ -10,18 +10,30 @@ body#preguntas {
 
 #respuestas-container {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: 100px 100px;
-    gap: 50px;
-    padding: 0 1%
+    grid-template-columns: 30vw 30vw;
+    grid-template-rows: 10vw 10vw;
+    gap: 3vw;
+    padding: 5% 5%
 }
 
 #pregunta {
     width: 100%;
-    height: 50vh;
+    height: 20vw;
+}
+#progreso {
+    width: 100%;
+    background-color: transparent;
+    margin-top: 25px;
+}
+
+#barra {
+    height: 30px;
+    width: 50%;
+    background-color: rgb(255, 0, 234);
 }
 
 .caja {
+    height: 8vw;
     border: 1px solid black;
     -webkit-border-radius: 5px;
     -webkit-border-top-left-radius: 100px;
@@ -32,28 +44,19 @@ body#preguntas {
     border-radius: 5px;
     border-top-left-radius: 100px;
     border-bottom-right-radius: 100px;
+    box-shadow: 6px 9px 23px 0px #000;
 }
 
 .tarjeta {
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
-    height: 80vh;
-    width: 90%;
+    background-color: rgba(255, 255, 255, 0.632);
+    height: 30%;
+    width: 78vw;
     box-shadow: 5px 0px 17px -2px rgba(0, 0, 0, 0.36);
     -webkit-box-shadow: 5px 0px 17px -2px rgba(0, 0, 0, 0.36);
     -moz-box-shadow: 5px 0px 17px -2px rgba(0, 0, 0, 0.36);
 }
 
-body#preguntas {
-    background-image: url("https://images6.alphacoders.com/860/860645.png");
-    background-size: cover;
-    padding: 0 50px;
-    display: flex;
-    flex-direction: wrap;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
 
 
 #resultado {
@@ -63,24 +66,29 @@ body#preguntas {
 }
 
 #iconofriki {
-    padding-left: 30px;
+    padding-left: 2vw;
+    width: 18vw;
 }
 
 .cabecera {
     display: flex;
     height: 20vw;
+    border: 2vw double #000000;
+    border-radius: 3vw;
+    padding: 1vw;
 }
 
 
 p#friki {
-    padding-left: 30px;
-    align-self: center;
-    font-size: 2.4vw;
+    font-family: 'Press Start 2P';
+    padding-left: 2vw;
+    margin-bottom: 4vw;
+    align-self: flex-end;
+    font-size: 1.4vw;
     display: block;
-    font-family: monospace;
     white-space: nowrap;
     border-right: 4px solid;
-    width: 54ch;
+    width: 80vw;
     animation: typing 2s steps(34), blink .5s infinite step-end alternate;
     overflow: hidden;
 }
@@ -97,7 +105,9 @@ p#friki {
     }
 }
 
-#puntuacion {
+#tablaresultado {
     display: flex;
     justify-content: center;
+    border: #000 1vw solid;
+    margin: 10px;
 }

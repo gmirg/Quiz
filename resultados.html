@@ -6,18 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Tabla de puntuaciones -->
     <h1 id="resultado">Resultados</h1>
+    <div id="tablaresultado">
+         <div class="elementoTabla">
+           <div>Categoria</div>
+           <div>Categoria seleccionada</div> 
+        </div>
+         <div class="elementoTabla">
+            <div>Respuestas acertadas</div>
+            <div>Numero de respuestas</div>
+         </div>
+         <div class="elementoTabla">
+            <div>Porcentaje de nerd</div>
+            <div>Porcentaje</div>
+         </div>
+     </div> 
     <div class="cabecera">
         <img id="iconofriki" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4-XWHxB6c6tnM758IRVHp3-L6HCFIke8LXg&usqp=CAU" alt="" srcset="">
-        <p id="friki">Aqui te muestro tus resultados en las últimas partidas</p>
-    </div>
-    <div id="puntuacion">
-        <div>Categoria</div>
-        <div>Respuestas acertadas</div>
-        <div>Porcentaje de nerd</div>
+        <p id="friki">Aqui te muestro el resultado de tu última partida.</p>
     </div>
 <script src="script.js"></script>
 </body>
