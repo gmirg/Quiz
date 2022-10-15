@@ -12,14 +12,16 @@
 <body id="preguntas">
     <!-- Aqui ponemos las preguntas estilo quien quiere ser millonario  -->
     <section class="tarjeta">
-    <div id="pregunta"></div>
+        <button onclick="empezarJuego()">INICIAR JUEGO</button>
+    <div><h2  id="pregunta"></h2></div>
     <div id="respuestas-container">
-        <div id="respuesta1" class="caja"></div>
-        <div id="respuesta2" class="caja"></div>
-        <div id="respuesta3" class="caja"></div>
-        <div id="respuesta4" class="caja"></div>
+        <button id="respuesta0" class="caja" onclick="responder(0)"></button>
+        <button id="respuesta1" class="caja" onclick="responder(1)"></button>
+        <button id="respuesta2" class="caja" onclick="responder(2)"></button>
+        <button id="respuesta3" class="caja" onclick="responder(3)"></button>
     </div>
     </section>
+    <script src="script.js"></script>
 </body>
 
 </html>
