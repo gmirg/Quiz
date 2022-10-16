@@ -18,7 +18,7 @@ body#preguntas {
 
 #pregunta {
     width: 100%;
-    height: 20vw;
+    height: 10vw;
 }
 #progreso {
     width: 100%;
@@ -47,7 +47,7 @@ body#preguntas {
     box-shadow: 6px 9px 23px 0px #000;
 }
 
-.tarjeta {
+#tarjeta {
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.632);
     height: 30%;
@@ -70,7 +70,7 @@ body#preguntas {
     width: 18vw;
 }
 
-.cabecera {
+.cabecerafriki {
     display: flex;
     height: 20vw;
     border: 2vw double #000000;
@@ -111,3 +111,105 @@ p#friki {
     border: #000 1vw solid;
     margin: 10px;
 }
+body{
+    background-image: url("https://cdn.fansshare.com/photo/animewallpaper/terrific-video-game-character-wallpaper-anime-collage-wallpaper-free-freak-list-news-network-yaoi-here-games-movies-season-animecrazy-anime-characters-wallpaper-2028410025.jpg");
+    margin: 0;
+  }
+  
+  .cabecera{
+    margin: 60px auto;
+    width: 600px;
+    height: 80px;
+    border-radius: 40px;
+    border: 5px black solid;
+    background-color: rgb(209, 11, 11);
+    text-align: center;
+    z-index: 3;
+  
+  }
+  
+  #cebolla{
+    position: absolute;
+    height: 120%;
+    width: 100%;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.492);
+    top: -8;
+    z-index: -1;
+  }
+  
+  
+  .categoria {
+    margin: 30px auto;
+    width: 500px;
+    height: 70px;
+    border-radius: 40px;
+    border: 5px black solid;
+    background-color: rgb(209, 11, 11);
+    text-align: center;
+  
+  }
+  
+  .caja-tarjetas {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    
+  }
+  
+  .card {
+    margin-bottom: 10px;
+    width: 350px;
+    height: 350px;
+    border-radius: 40px;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: 0.4s;
+    z-index: 2;
+  }
+  
+  .card .card_image {
+    width: inherit;
+    height: inherit;
+    border-radius: 40px;
+    
+  }
+  
+  .card .card_image img {
+    width: inherit;
+    height: inherit;
+    border-radius: 40px;
+    object-fit: cover;
+    border: 5px black solid;
+  }
+  
+  .card .tarjeta-titulo {
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 400;
+    font-size: 25px;
+    margin-top: -80px;
+    height: 40px;
+    -webkit-text-stroke: 2px;
+    -webkit-text-fill-color: rgb(251, 251, 251);
+  }
+  
+  .card:hover {
+    transform: scale(0.9, 0.9);
+    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+      -5px -5px 30px 15px rgba(0,0,0,0.22);
+  }
+  
+  .title-black {
+    color: black;
+   
+  }
+  
+  .title-black {
+    color: black;
+    border: solid 3px black;
+  }
+
+

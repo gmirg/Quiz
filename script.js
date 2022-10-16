@@ -1,16 +1,29 @@
 //Funcion para traer y guardar preguntas CATEGORIAS: Videojuegos = 15, Ordenadores = 18, comics = 29, dibujos animados = 32
-function buscarPreguntas(categoria){
-fetch(`https://opentdb.com/api.php?amount=10&category=${categoria}&type=multiple`) // amount = 10, esto trae 10 preguntas de la API
-    .then(res => res.json())
-    .then(json => {
-        localStorage.setItem("preguntas", JSON.stringify(json.results))
-        localStorage.setItem("contador", "0")
-    })
+function buscarPreguntas() {
+    var categoria = localStorage.getItem('categoria');
+    console.log(categoria)
+    fetch(`https://opentdb.com/api.php?amount=10&category=${categoria}&type=multiple`) // amount = 10, esto trae 10 preguntas de la API
+        .then(res => res.json())
+        .then(json => {
+            localStorage.setItem("preguntas", JSON.stringify(json.results))
+            localStorage.setItem("contador", "0");
+            localStorage.setItem("aciertos", "0");
+            localStorage.setItem("fallos","0" );
+            juego()
+
+        })
 }
-function empezarJuego() {
-    buscarPreguntas();
-    juego() 
+function juego() {
+    let cont = parseInt(localStorage.getItem("contador"));
+    mostrarPregunta(cont);
+    mostrarRespuestas(cont);
+    console.log("contador al ejecutar juego " + cont);
+    moverBarra();
 }
+function seleccionar(cat) {
+    localStorage.setItem("categoria", `${cat}`)
+}
+
 function mostrarPregunta(num) {
     let preguntas = JSON.parse(localStorage.getItem("preguntas"));
 
@@ -21,10 +34,10 @@ function mostrarPregunta(num) {
     let cuadroPregunta = document.getElementById("pregunta");
     // poner Cuadrorespuesta.innertext = algo, quiere deccir que en el hueco que hay entre llaves en el html colocas ese algo.
     cuadroPregunta.innerText = (`${enunciados[num]}`).replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#039;/g, "'");
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&#039;/g, "'");
     console.log(num)
     console.log(enunciados[num])
 }
@@ -53,41 +66,47 @@ function mostrarRespuestas(num) {
         // poner Cuadrorespuesta.innertext = algo, quiere deccir que en el hueco que hay entre llaves en el html colocas ese algo.
         // añado .replace para que el texto aparezca bien
         cuadroRespuesta.innerText = respDesorden[k].replace(/&amp;/g, '&')
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>')
-        .replace(/&quot;/g, '"')
-        .replace(/&#039;/g, "'");
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&quot;/g, '"')
+            .replace(/&#039;/g, "'");
         console.log(cuadroRespuesta.innerText)
     }
 }
 
 function responder(n) {
-    let respuestaMarcada = document.getElementById(`respuesta${n}`).innerText;
+    let respuestaMarcada = document.getElementById(`respuesta${n}`);
     console.log(respuestaMarcada)
     let preguntas = JSON.parse(localStorage.getItem("preguntas"));
     let correctas = [];
     for (let i = 0; i < preguntas.length; i++) {
         correctas.push(preguntas[i].correct_answer)
     }
-    var cont = localStorage.getItem("contador")
+    var cont = localStorage.getItem("contador");
+    let acertada = localStorage.getItem("aciertos");
+    let fallada = localStorage.getItem("fallos");
     console.log(correctas[cont])
-    if (respuestaMarcada == correctas[cont]) {
-        alert("ole ole ole");
-        var cont = parseInt(localStorage.getItem("contador")) + 1;
+    if (respuestaMarcada.innerText == correctas[cont]) {
+        // alert("ole ole ole");
+        respuestaMarcada.style.backgroundColor = "green";
+        cont = parseInt(localStorage.getItem("contador")) + 1;
         console.log("contador" + cont)
+        acertada = parseInt(localStorage.getItem("aciertos")) + 1;
         localStorage.setItem("contador", `${cont}`);
+        localStorage.setItem("aciertos", `${acertada}`)
+        respuestaMarcada.style.backgroundColor = "white";
         juego();
     } else {
-        alert("has fallado")
+        respuestaMarcada.style.backgroundColor = "red";
+        cont = parseInt(localStorage.getItem("contador")) + 1;
+        localStorage.setItem("contador", `${cont}`);
+        fallada = parseInt(localStorage.getItem("fallos")) + 1;
+        localStorage.setItem("fallos", `${fallada}`);
+        respuestaMarcada.style.backgroundColor = "white";
+        juego();
     }
 }
-function juego() {
-    let cont = parseInt(localStorage.getItem("contador"));
-    mostrarPregunta(cont);
-    mostrarRespuestas(cont);
-    console.log("contador al ejecutar juego " + cont);
-    moverBarra();
-}
+
 
 function moverBarra() {
     var i = 0;
@@ -97,7 +116,7 @@ function moverBarra() {
         var width = 1;
         var id = setInterval(frame, 30);
         function frame() {
-            if (width >= 78 || i==0) {
+            if (width >= 78 || i == 0) {
                 clearInterval(id);
                 i = 0;
             } else {

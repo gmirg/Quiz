@@ -7,26 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="script.js"></script>
 </head>
-
-<body id="preguntas">
+<body id="preguntas" onload="buscarPreguntas()">
     <!-- Aqui ponemos las preguntas estilo quien quiere ser millonario  -->
     <section class="barra-progreso">
         <div id="progreso">
             <div id="barra"></div>
-          </div>
+        </div>
     </section>
-    <section class="tarjeta">
-        <button onclick="empezarJuego()" on>INICIAR JUEGO</button>
-    <div><h2  id="pregunta"></h2></div>
-    <div id="respuestas-container">
-        <button id="respuesta0" class="caja" onclick="responder(0)"></button>
-        <button id="respuesta1" class="caja" onclick="responder(1)"></button>
-        <button id="respuesta2" class="caja" onclick="responder(2)"></button>
-        <button id="respuesta3" class="caja" onclick="responder(3)"></button>
-    </div>
+    <section id="tarjeta">
+        <div><h2  id="pregunta"></h2></div>
+        <div id="respuestas-container">
+            <button id="respuesta0" class="caja" onclick="responder(0)"></button>
+            <button id="respuesta1" class="caja" onclick="responder(1)"></button>
+            <button id="respuesta2" class="caja" onclick="responder(2)"></button>
+            <button id="respuesta3" class="caja" onclick="responder(3)"></button>
+        </div>
     </section>
-    <script src="script.js"></script>
 </body>
+<!-- <script src="script.js">buscarPreguntas()</script> -->
 
 </html>
