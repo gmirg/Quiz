@@ -175,6 +175,14 @@ const data = {
 const config = {    type: 'line',
     data: data,
     options: {
-        
+        scales: {
+            y: {
+                max: 10,
+                min: 0,
+                ticks: {
+                    stepSize: 1
+                }
+            }
+        }
     }
 };
