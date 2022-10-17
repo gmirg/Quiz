@@ -8,22 +8,73 @@ function buscarPreguntas() {
             localStorage.setItem("preguntas", JSON.stringify(json.results))
             localStorage.setItem("contador", "0");
             localStorage.setItem("aciertos", "0");
-            localStorage.setItem("fallos","0" );
+            localStorage.setItem("fallos", "0");
             juego()
 
         })
 }
 function juego() {
+    let resetColor = document.querySelector(".resp");
+    console.log(resetColor);
+    if (resetColor != null) {
+        resetColor.style.backgroundColor = "white";
+        resetColor.setAttribute("class", "caja");
+    }
     let cont = parseInt(localStorage.getItem("contador"));
-    mostrarPregunta(cont);
-    mostrarRespuestas(cont);
-    console.log("contador al ejecutar juego " + cont);
-    moverBarra();
+    if (cont < 10) {
+        mostrarPregunta(cont);
+        mostrarRespuestas(cont);
+        console.log("contador al ejecutar juego " + cont);
+        // moverBarra();
+    } else {
+        window.location = "resultados.html";
+    }
+}
+function guardarResultado() {
+    let date = new Date().toDateString();
+    let aciertos = localStorage.aciertos;
+    let puntuacion = class {
+        constructor(date, aciertos) {
+            this.date = date;
+            this.aciertos = aciertos;
+        }
+    }
+    var p = new puntuacion(date, aciertos)
+    var puntuaciones = []
+    console.log(puntuaciones)
+
+    var historial = localStorage.getItem("historial")
+    if (!historial) {
+        puntuaciones.push(p)
+        localStorage.setItem("historial", JSON.stringify(puntuaciones))
+    } else {
+        historial = JSON.parse(historial)
+        historial.push(p)
+        localStorage.setItem("historial", JSON.stringify(historial))
+        console.log(historial)
+    }
 }
 function seleccionar(cat) {
     localStorage.setItem("categoria", `${cat}`)
 }
-
+function mostrarResultados() {
+    var catResult = document.getElementById("catResult");
+    var aciertoResult = document.getElementById("aciertoResult");
+    var porcentajeResult = document.getElementById("porcentajeResult");
+    var categoria = localStorage.getItem("categoria");
+    switch (categoria) {
+        case "29": catResult.innerText = "Cómics"
+            break;
+        case "18": catResult.innerText = "Ordenadores"
+            break;
+        case "15": catResult.innerText = "Video-Juegos"
+            break;
+        case "32": catResult.innerText = "Dibujos Animados"
+            break;
+    }
+    aciertoResult.innerHTML = localStorage.aciertos;
+    porcentajeResult.innerHTML = localStorage.aciertos * 10 + "% Nerd"
+}
 function mostrarPregunta(num) {
     let preguntas = JSON.parse(localStorage.getItem("preguntas"));
 
@@ -33,11 +84,7 @@ function mostrarPregunta(num) {
     }
     let cuadroPregunta = document.getElementById("pregunta");
     // poner Cuadrorespuesta.innertext = algo, quiere deccir que en el hueco que hay entre llaves en el html colocas ese algo.
-    cuadroPregunta.innerText = (`${enunciados[num]}`).replace(/&amp;/g, '&')
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>')
-        .replace(/&quot;/g, '"')
-        .replace(/&#039;/g, "'");
+    cuadroPregunta.innerHTML = (`${enunciados[num]}`)
     console.log(num)
     console.log(enunciados[num])
 }
@@ -65,11 +112,7 @@ function mostrarRespuestas(num) {
         var cuadroRespuesta = document.getElementById(`respuesta${k}`);
         // poner Cuadrorespuesta.innertext = algo, quiere deccir que en el hueco que hay entre llaves en el html colocas ese algo.
         // añado .replace para que el texto aparezca bien
-        cuadroRespuesta.innerText = respDesorden[k].replace(/&amp;/g, '&')
-            .replace(/&lt;/g, '<')
-            .replace(/&gt;/g, '>')
-            .replace(/&quot;/g, '"')
-            .replace(/&#039;/g, "'");
+        cuadroRespuesta.innerHTML = respDesorden[k]
         console.log(cuadroRespuesta.innerText)
     }
 }
@@ -84,45 +127,65 @@ function responder(n) {
     }
     var cont = localStorage.getItem("contador");
     let acertada = localStorage.getItem("aciertos");
-    let fallada = localStorage.getItem("fallos");
     console.log(correctas[cont])
     if (respuestaMarcada.innerText == correctas[cont]) {
         // alert("ole ole ole");
+        respuestaMarcada.setAttribute("class", "resp");
         respuestaMarcada.style.backgroundColor = "green";
         cont = parseInt(localStorage.getItem("contador")) + 1;
         console.log("contador" + cont)
         acertada = parseInt(localStorage.getItem("aciertos")) + 1;
         localStorage.setItem("contador", `${cont}`);
         localStorage.setItem("aciertos", `${acertada}`)
-        respuestaMarcada.style.backgroundColor = "white";
-        juego();
+        setTimeout(juego, 1000);
     } else {
+        // alert("fallaste");
+        respuestaMarcada.setAttribute("class", "resp");
         respuestaMarcada.style.backgroundColor = "red";
         cont = parseInt(localStorage.getItem("contador")) + 1;
         localStorage.setItem("contador", `${cont}`);
-        fallada = parseInt(localStorage.getItem("fallos")) + 1;
-        localStorage.setItem("fallos", `${fallada}`);
-        respuestaMarcada.style.backgroundColor = "white";
-        juego();
+        setTimeout(juego, 1000);
     }
 }
-
-
-function moverBarra() {
-    var i = 0;
-    if (i == 0) {
-        i = 1;
-        var elem = document.getElementById("barra");
-        var width = 1;
-        var id = setInterval(frame, 30);
-        function frame() {
-            if (width >= 78 || i == 0) {
-                clearInterval(id);
-                i = 0;
-            } else {
-                width = width + 0.1;
-                elem.style.width = width + "vw";
-            }
-        }
-    }
-}
+// function moverBarra() {
+//     var i = 0;
+//     if (i == 0) {
+//         i = 1;
+//         var elem = document.getElementById("barra");
+//         var width = 1;
+//         var id = setInterval(frame, 150);
+//         function frame() {
+//             if (width >= 100) {
+//                 clearInterval(id);
+//                 i = 0;
+//             } else {
+//                 width++;
+//                 elem.style.width = width + "%";
+//             }
+//         }
+//     }
+// }
+// function moverBarra() {
+//     var i = 0;
+//     if (i == 0) {
+//         i = 1;
+//         var elem = document.getElementById("barra");
+//         var width = 1;
+//         var id = setInterval(frame, 150);
+//         function frame() {
+//             if (width >= 100)  {
+//                 clearInterval(id);
+//                 i = 0;
+//                 cont = parseInt(localStorage.getItem("contador")) + 1;
+//                 localStorage.setItem("contador", `${cont}`);
+//                 fallada = parseInt(localStorage.getItem("fallos")) + 1;
+//                 localStorage.setItem("fallos", `${fallada}`);
+//                 width = 0;
+//                 juego()
+//             } else {
+//                 width++;
+//                 elem.style.width = width + "%";
+//             }
+//         }
+//     }
+// }
