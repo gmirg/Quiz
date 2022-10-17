@@ -11,9 +11,10 @@ body#preguntas {
 h2#pregunta {
   font-family: 'Press Start 2P', cursive;
   text-align: center;
-  font-size: 35px;
-  padding: 2% 4%;
-  width: inherit;
+  font-size: 25px;
+  
+  width: inherit;padding-top: 1vw;
+
 }
 
 button {
@@ -30,7 +31,7 @@ button {
   grid-template-columns: 35vw 35vw;
   grid-template-rows: 10vw 10vw;
   gap: 2vw;
-  padding: 0% 5%
+  padding: 0% 9%
 }
 
 #pregunta {
@@ -73,9 +74,10 @@ button {
   box-shadow: 5px 0px 17px -2px rgba(0, 0, 0, 0.36);
   -webkit-box-shadow: 5px 0px 17px -2px rgba(0, 0, 0, 0.36);
   -moz-box-shadow: 5px 0px 17px -2px rgba(0, 0, 0, 0.36);
-  height: 75vh;
+  height: 70vh;
   width: 90%;
   margin: 0 auto;
+  border: solid ;
 }
 
 
@@ -95,27 +97,29 @@ h1#resultado {
   margin-top: 0;
   padding-bottom: 4vw;
 }
+
 #reset {
   height: 5vw;
   width: 10vw;
   align-self: center;
 }
-#reset button{
+
+#reset button {
   height: 5vw;
   width: 10vw;
   box-shadow: 3px 4px 0px 0px #8a2a21;
-	background:linear-gradient(to bottom, red 5%, red 100%);
-	background-color:red;
-	border-radius:18px;
-	border:3px solid #000000;
-	display:inline-block;
-	cursor:pointer;
-	color:#000000;
-	font-family:'Press Start 2P';
-	font-size:1vw;
-	padding:7px 25px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #a60d02;
+  background: linear-gradient(to bottom, red 5%, red 100%);
+  background-color: red;
+  border-radius: 18px;
+  border: 3px solid #000000;
+  display: inline-block;
+  cursor: pointer;
+  color: #000000;
+  font-family: 'Press Start 2P';
+  font-size: 1vw;
+  padding: 7px 25px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #a60d02;
 }
 
 body#resultados {
@@ -220,7 +224,8 @@ p#friki2 {
     font-family: 'Press Start 2P';
     font-size: 4vw;
     border: #000 1vw solid;
-    background-color: rgb(255, 0, 0);;
+    background-color: rgb(255, 0, 0);
+    ;
     text-align: center;
     width: 50vw;
   }
@@ -305,7 +310,7 @@ body#index {
 
 #cebolla {
   position: absolute;
-  height: 100vw;
+  height: 78vw;
   width: 100%;
   display: block;
   background-color: rgba(255, 255, 255, 0.492);
@@ -332,7 +337,7 @@ body#index {
 }
 
 .caja-tarjetas {
-  padding-top: 5vw;
+  padding-top: 3vw;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -394,7 +399,7 @@ body#index {
 
   .caja,
   .resp {
-    height: 12vw;
+    height: 8vw;
   }
 
   .cabecera {
@@ -518,32 +523,53 @@ body#resultados {
 
 button#respuesta0.caja {
   font-family: 'Press Start 2P', cursive;
-  font-size: 20px;
+  font-size: 0.7vw;
   box-shadow: 0 0 40px rgb(127, 255, 68);
+  width: 30vw;
+  height: 5vw;
 
 }
 
 button#respuesta1.caja {
   font-family: 'Press Start 2P', cursive;
-  font-size: 20px;
+  font-size: 0.7vw;
   box-shadow: 0 0 40px rgb(127, 255, 68);
+  width: 30vw;
+  height: 5vw;
 }
 
 button#respuesta2.caja {
   font-family: 'Press Start 2P', cursive;
-  font-size: 20px;
+  font-size: 0.7vw;
   box-shadow: 0 0 40px rgb(127, 255, 68);
-
+  width: 30vw;
+  height: 5vw;
 
 }
 
 button#respuesta3.caja {
   font-family: 'Press Start 2P', cursive;
-  font-size: 20px;
+  font-size: 0.7vw;
   box-shadow: 0 0 40px rgb(127, 255, 68);
+  width: 30vw;
+  height: 5vw;
 }
 
 
 
 /*---------------------------------------------------------GRÁFICA------------------------------------------------------------------------------------------*/
 
+.alineargrafica {
+  display: flex;
+  justify-content: center;
+}
+
+.grafica {
+  display: flex;
+  justify-content: center;
+  width: 30vw;
+  background-color: rgb(255, 255, 255);
+  margin-top: 8vw;
+  border: solid 0.2vw;
+  padding: 20px;
+}

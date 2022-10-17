@@ -150,8 +150,8 @@ var labels = historial.map(element => { return element.date });
 const data = {
     labels: labels,
     datasets: [{
-        label: '% NERD',
-        backgroundColor: 'rgb(255, 99, 132)',
+        label: '% NERD (Últimos resultados)',
+        backgroundColor:'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
         data: datos,
     }]
