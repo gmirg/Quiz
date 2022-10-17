@@ -1,7 +1,6 @@
 //Funcion para traer y guardar preguntas CATEGORIAS: Videojuegos = 15, Ordenadores = 18, comics = 29, dibujos animados = 32
 function buscarPreguntas() {
     var categoria = localStorage.getItem('categoria');
-    console.log(categoria)
     fetch(`https://opentdb.com/api.php?amount=10&category=${categoria}&type=multiple`) // amount = 10, esto trae 10 preguntas de la API
         .then(res => res.json())
         .then(json => {
@@ -9,55 +8,58 @@ function buscarPreguntas() {
             localStorage.setItem("contador", "0");
             localStorage.setItem("aciertos", "0");
             juego()
-
         })
 }
 
 function juego() {
+    // esta parte cambia de color las casillas de las respuestas
     let resetColor = document.querySelector(".resp");
-    console.log(resetColor);
     if (resetColor != null) {
         resetColor.style.backgroundColor = "white";
         resetColor.setAttribute("class", "caja");
     }
+    // esta es la parte principal de la función
     let cont = parseInt(localStorage.getItem("contador"));
     if (cont < 10) {
         mostrarPregunta(cont);
         mostrarRespuestas(cont);
         console.log("contador al ejecutar juego " + cont);
-        // moverBarra();
     } else {
         window.location = "resultados.html";
         guardarResultado();
     }
 }
+
 function guardarResultado() {
+    //creamos una clase Puntuacion donde guardamos Fecha y numero de aciertos
     let date = new Date().toDateString();
     let aciertos = localStorage.aciertos;
-    let puntuacion = class {
+    let Puntuacion = class {
         constructor(date, aciertos) {
             this.date = date;
             this.aciertos = aciertos;
         }
     }
-    var p = new puntuacion(date, aciertos)
-    var puntuaciones = []
-    console.log(puntuaciones)
-
-    var historial = localStorage.getItem("historial")
+    var p = new Puntuacion(date, aciertos);
+    var puntuaciones = [];
+    // recogemos la info del storage, le añadimos el ultimo resultado y volvemos a guardar
+    var historial = localStorage.getItem("historial");
     if (!historial) {
-        puntuaciones.push(p)
-        localStorage.setItem("historial", JSON.stringify(puntuaciones))
+        puntuaciones.push(p);
+        localStorage.setItem("historial", JSON.stringify(puntuaciones));
     } else {
-        historial = JSON.parse(historial)
-        historial.push(p)
-        localStorage.setItem("historial", JSON.stringify(historial))
-        console.log(historial)
+        historial = JSON.parse(historial);
+        historial.push(p);
+        localStorage.setItem("historial", JSON.stringify(historial));
     }
 }
+
+// funcion que selecciona la categoria de preguntas con las que vamos a concursar
 function seleccionar(cat) {
-    localStorage.setItem("categoria", `${cat}`)
+    localStorage.setItem("categoria", `${cat}`);
 }
+// funcion que muestra los resultados al final de la partida.
+
 function mostrarResultados() {
     var catResult = document.getElementById("catResult");
     var aciertoResult = document.getElementById("aciertoResult");
@@ -74,73 +76,64 @@ function mostrarResultados() {
             break;
     }
     aciertoResult.innerHTML = localStorage.aciertos;
-    porcentajeResult.innerHTML = localStorage.aciertos * 10 + "% Nerd"
+    porcentajeResult.innerHTML = localStorage.aciertos * 10 + "% Nerd";
 }
+
+
 function mostrarPregunta(num) {
     let preguntas = JSON.parse(localStorage.getItem("preguntas"));
 
     let enunciados = [];
     for (let i = 0; i < preguntas.length; i++) {
-        enunciados.push((preguntas[i].question))
+        enunciados.push((preguntas[i].question));
     }
     let cuadroPregunta = document.getElementById("pregunta");
     // poner Cuadrorespuesta.innerHTML = algo, quiere decir que en el hueco que hay entre llaves en el html colocas ese algo.
-    cuadroPregunta.innerHTML = (`${enunciados[num]}`)
-    console.log(num)
-    console.log(enunciados[num])
+    cuadroPregunta.innerHTML = (`${enunciados[num]}`);
 }
 
 function mostrarRespuestas(num) {
     let preguntas2 = JSON.parse(localStorage.getItem("preguntas"));
-    console.log(preguntas2)
+    console.log(preguntas2);
     let correctas = [];
     for (let i = 0; i < preguntas2.length; i++) {
-        correctas.push(preguntas2[i].correct_answer)
+        correctas.push(preguntas2[i].correct_answer);
     }
     let incorrectas = [];
     for (let j = 0; j < preguntas2.length; j++) {
-        incorrectas.push((preguntas2[j].incorrect_answers))
+        incorrectas.push((preguntas2[j].incorrect_answers));
     }
-    console.log(correctas)
-    console.log(incorrectas)
     //aqui metes las 4 respuestas
     let respuestas = [correctas[num], incorrectas[num][0], incorrectas[num][1], incorrectas[num][2]];
-    console.log(respuestas);
     // pones en un array las cuatro respuestas, luego haces el random y una funcion que coloque las 4 respuestas desordenadas en cada div respuesta`${i}`
     var respDesorden = respuestas.sort(() => Math.random() - 0.5);
-    console.log(respDesorden)
     for (let k = 0; k < respDesorden.length; k++) {
         var cuadroRespuesta = document.getElementById(`respuesta${k}`);
         // poner Cuadrorespuesta.innerHTML = algo, quiere deccir que en el hueco que hay entre llaves en el html colocas ese algo.
         // añado .replace para que el texto aparezca bien
-        cuadroRespuesta.innerHTML = respDesorden[k]
-        console.log(cuadroRespuesta.innerText)
+        cuadroRespuesta.innerHTML = respDesorden[k];
     }
 }
 
+// funcion que compara la respuesta que marca el usuario con la correcta, suma al contador y pasa a la siguiente pregunta.
 function responder(n) {
     let respuestaMarcada = document.getElementById(`respuesta${n}`);
-    console.log(respuestaMarcada)
     let preguntas = JSON.parse(localStorage.getItem("preguntas"));
     let correctas = [];
     for (let i = 0; i < preguntas.length; i++) {
-        correctas.push(preguntas[i].correct_answer)
+        correctas.push(preguntas[i].correct_answer);
     }
     var cont = localStorage.getItem("contador");
     let acertada = localStorage.getItem("aciertos");
-    console.log(correctas[cont])
     if (respuestaMarcada.innerText == correctas[cont]) {
-        // alert("ole ole ole");
         respuestaMarcada.setAttribute("class", "resp");
         respuestaMarcada.style.backgroundColor = "green";
         cont = parseInt(localStorage.getItem("contador")) + 1;
-        console.log("contador" + cont)
         acertada = parseInt(localStorage.getItem("aciertos")) + 1;
         localStorage.setItem("contador", `${cont}`);
-        localStorage.setItem("aciertos", `${acertada}`)
+        localStorage.setItem("aciertos", `${acertada}`);
         setTimeout(juego, 1000);
     } else {
-        // alert("fallaste");
         respuestaMarcada.setAttribute("class", "resp");
         respuestaMarcada.style.backgroundColor = "red";
         cont = parseInt(localStorage.getItem("contador")) + 1;
@@ -149,19 +142,11 @@ function responder(n) {
     }
 }
 
-
 /* ------------------------------------- SCRIPT GRÁFICAS --------------------------------------- */
 
 var historial = JSON.parse(localStorage.historial);
-
-
-
- 
-var datos =  historial.map(element => { return parseInt(element.aciertos)})
-var labels = historial.map(element => { return element.date});
-console.log(labels)
-console.log(datos)
-
+var datos = historial.map(element => { return parseInt(element.aciertos) })
+var labels = historial.map(element => { return element.date });
 const data = {
     labels: labels,
     datasets: [{
@@ -172,7 +157,8 @@ const data = {
     }]
 };
 
-const config = {    type: 'line',
+const config = {
+    type: 'line',
     data: data,
     options: {
         scales: {
