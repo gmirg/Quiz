@@ -10,27 +10,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="resultados" onload="mostrarResultados()">
     <!-- Tabla de puntuaciones -->
-    <h1 id="resultado">Resultados</h1>
+    <h1 id="resultado">Puntuación</h1>
     <div id="tablaresultado">
          <div class="elementoTabla">
-           <div>Categoria</div>
-           <div>Categoria seleccionada</div> 
+           <div><h3>Categoria</h3></div>
+           <p id="catResult">Categoria seleccionada</p> 
         </div>
          <div class="elementoTabla">
-            <div>Respuestas acertadas</div>
-            <div>Numero de respuestas</div>
+            <div><h3>Respuestas acertadas</h3></div>
+            <p id="aciertoResult">Numero de respuestas</p>
          </div>
          <div class="elementoTabla">
-            <div>Porcentaje de nerd</div>
-            <div>Porcentaje</div>
+            <div><h3>Porcentaje de nerd</h3></div>
+            <p id="porcentajeResult">Porcentaje</p>
          </div>
      </div> 
     <div class="cabecerafriki">
-        <img id="iconofriki" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4-XWHxB6c6tnM758IRVHp3-L6HCFIke8LXg&usqp=CAU" alt="" srcset="">
-        <p id="friki">Aqui te muestro el resultado de tu última partida.</p>
+        <img id="iconofriki" src="Friki-Meme_29.bmp" alt="" srcset="">
+        <div id="textofriki">
+        <p id="friki">Aqui te muestro la puntuación </p><br><p id="friki2">de tu última partida.</p></div>
     </div>
-<script src="script.js"></script>
 </body>
+<script src="script.js"></script>
 </html>
