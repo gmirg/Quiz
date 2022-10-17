@@ -19,7 +19,7 @@
     </div>
 
     <div class="categoria">
-        <h2>Elige la categoria</h2>
+        <h2>Choose Category</h2>
     </div>
     <div class="caja-tarjetas">
 
@@ -40,7 +40,7 @@
                     <img src="/tarjetavideojuego.jpg" />
                 </div>
                 <div class="tarjeta-titulo titulo-negro">
-                    <p>VIDEOJUEGOS</p>
+                    <p>VIDEOGAMES</p>
                 </div>
             </button>
         </a>
@@ -50,7 +50,7 @@
                     <img src="/tarjetadibujos.jpg" />
                 </div>
                 <div class="tarjeta-titulo titulo-negro">
-                    <p>DIBUJOS ANIMADOS</p>
+                    <p>CARTOON</p>
             </button>
         </a>
 
@@ -60,13 +60,25 @@
                     <img src="/tarjetaordenador.png" />
                 </div>
                 <div class="tarjeta-titulo titulo-negro">
-                    <p>ORDENADORES</p>
+                    <p>COMPUTER SCIENCE</p>
                 </div>
             </button></a>
     </div>
 
     </div>
+
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
 </body>
 <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+  </script>
 
 </html>

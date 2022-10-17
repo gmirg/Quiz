@@ -90,12 +90,33 @@ h1#resultado {
   width: 25vw;
   border-radius: 40px;
   border: 5px black solid;
-  background-color: rgb(209, 11, 11);
+  background-color: rgb(255, 0, 0);
   z-index: 3;
   margin-top: 0;
   padding-bottom: 4vw;
 }
-
+#reset {
+  height: 5vw;
+  width: 10vw;
+  align-self: center;
+}
+#reset button{
+  height: 5vw;
+  width: 10vw;
+  box-shadow: 3px 4px 0px 0px #8a2a21;
+	background:linear-gradient(to bottom, red 5%, red 100%);
+	background-color:red;
+	border-radius:18px;
+	border:3px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:'Press Start 2P';
+	font-size:1vw;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #a60d02;
+}
 
 body#resultados {
   background-image: url("https://cdn.fansshare.com/photo/animewallpaper/terrific-video-game-character-wallpaper-anime-collage-wallpaper-free-freak-list-news-network-yaoi-here-games-movies-season-animecrazy-anime-characters-wallpaper-2028410025.jpg");
@@ -139,7 +160,7 @@ p#friki {
   font-family: 'Press Start 2P';
   padding-left: 2vw;
   align-self: flex-end;
-  font-size: 2.1vw;
+  font-size: 2.7vw;
   display: block;
   white-space: nowrap;
   border-right: 0.7vw solid transparent;
@@ -153,12 +174,12 @@ p#friki2 {
   padding-left: 2vw;
   margin-bottom: 2vw;
   align-self: flex-end;
-  font-size: 2.1vw;
+  font-size: 2.7vw;
   display: block;
   white-space: nowrap;
   border-right: 0.7vw solid transparent;
-  width: 44vw;
-  animation: aparece 0s 1.5s forwards, typing 2s 1.5s steps(15), blink .5s infinite step-start alternate;
+  width: 50vw;
+  animation: aparece 0s 2s forwards, typing 2s 2s steps(15), blink .5s infinite step-start alternate;
   overflow: hidden;
   opacity: 0;
 }
@@ -199,7 +220,7 @@ p#friki2 {
     font-family: 'Press Start 2P';
     font-size: 4vw;
     border: #000 1vw solid;
-    background-color: red;
+    background-color: rgb(255, 0, 0);;
     text-align: center;
     width: 50vw;
   }
@@ -212,7 +233,7 @@ p#friki2 {
     height: 10vw;
     border-radius: 40px;
     border: 5px black solid;
-    background-color: rgb(209, 11, 11);
+    background-color: rgb(255, 0, 0);
     text-align: center;
     z-index: 3;
 
@@ -396,8 +417,8 @@ body#index {
 
   .card {
     /* margin-bottom: 10px; */
-    width: 60vw;
-    height: 60vw;
+    width: 40vw;
+    height: 40vw;
     border-radius: 40px;
     box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
     cursor: pointer;
@@ -407,13 +428,13 @@ body#index {
 
   .caja-tarjetas a button {
     padding: 2vw;
-    width: 60vw;
-    height: 60vw;
+    width: 40vw;
+    height: 40vw;
   }
 
   .card .card_image img {
-    width: 60vw;
-    height: 60vw;
+    width: 40vw;
+    height: 40vw;
     border-radius: 40px;
     object-fit: cover;
     border: 5px black solid;
@@ -433,8 +454,11 @@ body#index {
 
 .card {
   /* margin-bottom: 10px; */
-  width: 350px;
-  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 10vw;
+  height: 10vw;
   border-radius: 40px;
   box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
   cursor: pointer;
@@ -450,7 +474,7 @@ body#index {
 }
 
 div a {
-  padding: 2vw
+  padding: 2vw;
 }
 
 .card .card_image img {
@@ -465,8 +489,7 @@ div a {
   text-align: center;
   font-family: 'Press Start 2P', cursive;
   font-weight: 400;
-  font-size: 25px;
-  margin-top: -80px;
+  font-size: 1.3vw;
   height: 40px;
   -webkit-text-stroke: 2px;
   -webkit-text-fill-color: rgb(251, 251, 251);
@@ -519,3 +542,8 @@ button#respuesta3.caja {
   font-size: 20px;
   box-shadow: 0 0 40px rgb(127, 255, 68);
 }
+
+
+
+/*---------------------------------------------------------GRÁFICA------------------------------------------------------------------------------------------*/
+
