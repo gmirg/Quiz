@@ -8,11 +8,11 @@ function buscarPreguntas() {
             localStorage.setItem("preguntas", JSON.stringify(json.results))
             localStorage.setItem("contador", "0");
             localStorage.setItem("aciertos", "0");
-            localStorage.setItem("fallos", "0");
             juego()
 
         })
 }
+
 function juego() {
     let resetColor = document.querySelector(".resp");
     console.log(resetColor);
@@ -28,6 +28,7 @@ function juego() {
         // moverBarra();
     } else {
         window.location = "resultados.html";
+        guardarResultado();
     }
 }
 function guardarResultado() {
@@ -83,7 +84,7 @@ function mostrarPregunta(num) {
         enunciados.push((preguntas[i].question))
     }
     let cuadroPregunta = document.getElementById("pregunta");
-    // poner Cuadrorespuesta.innertext = algo, quiere deccir que en el hueco que hay entre llaves en el html colocas ese algo.
+    // poner Cuadrorespuesta.innerHTML = algo, quiere decir que en el hueco que hay entre llaves en el html colocas ese algo.
     cuadroPregunta.innerHTML = (`${enunciados[num]}`)
     console.log(num)
     console.log(enunciados[num])
@@ -110,7 +111,7 @@ function mostrarRespuestas(num) {
     console.log(respDesorden)
     for (let k = 0; k < respDesorden.length; k++) {
         var cuadroRespuesta = document.getElementById(`respuesta${k}`);
-        // poner Cuadrorespuesta.innertext = algo, quiere deccir que en el hueco que hay entre llaves en el html colocas ese algo.
+        // poner Cuadrorespuesta.innerHTML = algo, quiere deccir que en el hueco que hay entre llaves en el html colocas ese algo.
         // añado .replace para que el texto aparezca bien
         cuadroRespuesta.innerHTML = respDesorden[k]
         console.log(cuadroRespuesta.innerText)
@@ -147,45 +148,33 @@ function responder(n) {
         setTimeout(juego, 1000);
     }
 }
-// function moverBarra() {
-//     var i = 0;
-//     if (i == 0) {
-//         i = 1;
-//         var elem = document.getElementById("barra");
-//         var width = 1;
-//         var id = setInterval(frame, 150);
-//         function frame() {
-//             if (width >= 100) {
-//                 clearInterval(id);
-//                 i = 0;
-//             } else {
-//                 width++;
-//                 elem.style.width = width + "%";
-//             }
-//         }
-//     }
-// }
-// function moverBarra() {
-//     var i = 0;
-//     if (i == 0) {
-//         i = 1;
-//         var elem = document.getElementById("barra");
-//         var width = 1;
-//         var id = setInterval(frame, 150);
-//         function frame() {
-//             if (width >= 100)  {
-//                 clearInterval(id);
-//                 i = 0;
-//                 cont = parseInt(localStorage.getItem("contador")) + 1;
-//                 localStorage.setItem("contador", `${cont}`);
-//                 fallada = parseInt(localStorage.getItem("fallos")) + 1;
-//                 localStorage.setItem("fallos", `${fallada}`);
-//                 width = 0;
-//                 juego()
-//             } else {
-//                 width++;
-//                 elem.style.width = width + "%";
-//             }
-//         }
-//     }
-// }
+
+
+/* ------------------------------------- SCRIPT GRÁFICAS --------------------------------------- */
+
+var historial = JSON.parse(localStorage.historial);
+
+
+
+ 
+var datos =  historial.map(element => { return parseInt(element.aciertos)})
+var labels = historial.map(element => { return element.date});
+console.log(labels)
+console.log(datos)
+
+const data = {
+    labels: labels,
+    datasets: [{
+        label: '% NERD',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: datos,
+    }]
+};
+
+const config = {    type: 'line',
+    data: data,
+    options: {
+        
+    }
+};
