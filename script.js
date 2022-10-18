@@ -13,12 +13,11 @@ function buscarPreguntas() {
 
 function juego() {
     // esta parte cambia de color las casillas de las respuestas
-    let resetColor = document.querySelector(".resp");
-    if (resetColor != null) {
-        resetColor.style.backgroundColor = "white";
-        resetColor.setAttribute("class", "caja");
-    }
     // esta es la parte principal de la función
+    let resetColor = document.getElementsByClassName("caja");
+    for (let i = 0; i < resetColor.length; i++) {
+        resetColor[i].style.backgroundColor = "white";
+    }
     let cont = parseInt(localStorage.getItem("contador"));
     if (cont < 10) {
         mostrarPregunta(cont);
@@ -28,6 +27,7 @@ function juego() {
         window.location = "resultados.html";
         guardarResultado();
     }
+
 }
 
 function guardarResultado() {
@@ -113,6 +113,7 @@ function mostrarRespuestas(num) {
         // añado .replace para que el texto aparezca bien
         cuadroRespuesta.innerHTML = respDesorden[k];
     }
+
 }
 
 // funcion que compara la respuesta que marca el usuario con la correcta, suma al contador y pasa a la siguiente pregunta.
@@ -125,8 +126,8 @@ function responder(n) {
     }
     var cont = localStorage.getItem("contador");
     let acertada = localStorage.getItem("aciertos");
-    if (respuestaMarcada.innerText == correctas[cont]) {
-        respuestaMarcada.setAttribute("class", "resp");
+    if (respuestaMarcada.innerHTML == correctas[cont]) {
+        // respuestaMarcada.setAttribute("class", "resp");
         respuestaMarcada.style.backgroundColor = "green";
         cont = parseInt(localStorage.getItem("contador")) + 1;
         acertada = parseInt(localStorage.getItem("aciertos")) + 1;
@@ -134,8 +135,16 @@ function responder(n) {
         localStorage.setItem("aciertos", `${acertada}`);
         setTimeout(juego, 1000);
     } else {
-        respuestaMarcada.setAttribute("class", "resp");
+        // respuestaMarcada.setAttribute("class", "resp");
         respuestaMarcada.style.backgroundColor = "red";
+        let respuestaCorrecta = document.getElementsByClassName("caja");
+        console.log(respuestaCorrecta);
+        let i = 0;
+        while (respuestaCorrecta[i].innerHTML != correctas[cont]) {
+            i++;
+        }
+        let marcarVerde = respuestaCorrecta[i];
+        marcarVerde.style.backgroundColor = "green";
         cont = parseInt(localStorage.getItem("contador")) + 1;
         localStorage.setItem("contador", `${cont}`);
         setTimeout(juego, 1000);
@@ -151,7 +160,7 @@ const data = {
     labels: labels,
     datasets: [{
         label: '% NERD (Últimos resultados)',
-        backgroundColor:'rgb(255, 99, 132)',
+        backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
         data: datos,
     }]

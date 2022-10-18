@@ -51,8 +51,7 @@ button {
   background-color: rgb(255, 0, 234);
 }
 
-.caja,
-.resp {
+.caja{
   height: 8vw;
   border: 1px solid black;
   -webkit-border-radius: 5px;
@@ -66,6 +65,11 @@ button {
   border-bottom-right-radius: 100px;
   box-shadow: 6px 9px 23px 0px #000;
   background-color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7vw;
+  box-shadow: 0 0 40px rgb(127, 255, 68);
+  width: 30vw;
+  height: 5vw;
 }
 
 #tarjeta {
@@ -385,9 +389,12 @@ body#index {
   }
 
   #pregunta-container {
-    height: 100vw;
+    height: 10vw;
   }
-
+#respuestas-container {
+    position: relative;
+    top: 33vh;
+}
   body#preguntas {
     padding: 0 5%;
     margin: 0;
@@ -399,9 +406,13 @@ body#index {
 
   .caja,
   .resp {
-    height: 8vw;
+    height: 12vw;
+    width: 90%;
+    font-size: 12px;
   }
-
+  #tarjeta {
+    height: 80vh;
+  }
   .cabecera {
     font-family: 'Press Start 2P', cursive;
     font-size: 3vw;
@@ -457,7 +468,7 @@ body#index {
   }
 }
 
-.card {
+.card, .resp {
   /* margin-bottom: 10px; */
   display: flex;
   flex-direction: column;
@@ -521,7 +532,7 @@ body#resultados {
 
 }
 
-button#respuesta0.caja {
+/* button#respuesta0.caja {
   font-family: 'Press Start 2P', cursive;
   font-size: 0.7vw;
   box-shadow: 0 0 40px rgb(127, 255, 68);
@@ -553,7 +564,7 @@ button#respuesta3.caja {
   box-shadow: 0 0 40px rgb(127, 255, 68);
   width: 30vw;
   height: 5vw;
-}
+} */
 
 
 
