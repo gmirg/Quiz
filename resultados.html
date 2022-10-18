@@ -6,19 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="resultados" onload="mostrarResultados()">
     <!-- Tabla de puntuaciones -->
-    <h1 id="resultado">Resultados</h1>
-    <div class="cabecera">
-        <img id="iconofriki" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4-XWHxB6c6tnM758IRVHp3-L6HCFIke8LXg&usqp=CAU" alt="" srcset="">
-        <p id="friki">Aqui te muestro tus resultados en las últimas partidas</p>
+    <h1 id="resultado">SCORE</h1>
+    <div id="tablaresultado">
+         <div class="elementoTabla">
+           <div><h3>Category</h3></div>
+           <p id="catResult">Selected Category</p> 
+        </div>
+         <div class="elementoTabla">
+            <div><h3>Correct answers</h3></div>
+            <p id="aciertoResult"></p>
+         </div>
+         <div class="elementoTabla">
+            <div><h3>Nerd Index</h3></div>
+            <p id="porcentajeResult"></p>
+         </div>
+     </div> 
+    <div class="cabecerafriki">
+        <img id="iconofriki" src="Friki-Meme_29.bmp" alt="" srcset="">
+        <div id="textofriki">
+        <p id="friki">Here is your Nerd score </p><br><p id="friki2">of your last game.</p></div>
     </div>
-    <div id="puntuacion">
-        <div>Categoria</div>
-        <div>Respuestas acertadas</div>
-        <div>Porcentaje de nerd</div>
-    </div>
-<script src="script.js"></script>
+    <a id="reset" href="index.html"><button>Reset Game</button></a>
 </body>
+<script src="script.js"></script>
 </html>

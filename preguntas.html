@@ -5,23 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Questions</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
-</head>
-
-<body id="preguntas">
-    <!-- Aqui ponemos las preguntas estilo quien quiere ser millonario  -->
-    <section class="tarjeta">
-        <button onclick="empezarJuego()">INICIAR JUEGO</button>
-    <div><h2  id="pregunta"></h2></div>
-    <div id="respuestas-container">
-        <button id="respuesta0" class="caja" onclick="responder(0)"></button>
-        <button id="respuesta1" class="caja" onclick="responder(1)"></button>
-        <button id="respuesta2" class="caja" onclick="responder(2)"></button>
-        <button id="respuesta3" class="caja" onclick="responder(3)"></button>
-    </div>
-    </section>
     <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+</head>
+<body id="preguntas" onload="buscarPreguntas()">
+    <!-- Aqui ponemos las preguntas estilo quien quiere ser millonario  -->
+    <section class="barra-progreso">
+        <div id="progreso">
+            <div id="barra"></div>
+        </div>
+    </section>
+    <section id="tarjeta">
+        <div id="pregunta-container"><h2 id="pregunta"></h2></div>
+        <div id="respuestas-container">
+            <button id="respuesta0" class="caja" onclick="responder(0)"></button>
+            <button id="respuesta1" class="caja" onclick="responder(1)"></button>
+            <button id="respuesta2" class="caja" onclick="responder(2)"></button>
+            <button id="respuesta3" class="caja" onclick="responder(3)"></button>
+        </div>
+    </section>
 </body>
+<!-- <script src="script.js">buscarPreguntas()</script> -->
 
 </html>
